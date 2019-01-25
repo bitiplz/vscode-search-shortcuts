@@ -81,3 +81,5 @@ typings/
 .dynamodb/
 # ===== End Node.gitignore =====
 
+/out
+
