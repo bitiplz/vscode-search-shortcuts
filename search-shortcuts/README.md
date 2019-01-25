@@ -1,51 +1,32 @@
-# search-shortcuts README
+# Search-shortcuts
 
-This is the README for your extension "search-shortcuts". After writing up a brief description, we recommend including the following sections.
+Search-shortcuts is a Visual Studio Code extension.  
+Aiming to add a quick and easy way to add and toggle between predefined file include/exculde rules and patterns to the searches.
+
+User will be able to define search patterns or sets of those in the settings json.  
+My target is to provide a comfortable way include these patterns via the workspace files for a project, and to prevent some typing :).
+
+This is a learner project, Im completely new to VSCode Extensions, TypeScript and also to git/github. 
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+TBD
 
-For example if there is an image subfolder under your extension project workspace:
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+TBD
 
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+-
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+-
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
 
 -----------------------------------------------------------------------------------------------------------
 
