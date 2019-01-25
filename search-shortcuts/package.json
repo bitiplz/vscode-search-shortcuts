@@ -18,6 +18,18 @@
 			{
 				"command": "extension.search-shortcuts",
 				"title": "Search Shortcuts"
+			},
+			{
+				"command": "extension.search-shortcuts.toggle-lua",
+				"title": "Search Shortcuts: Toggle LUA"
+			},
+			{
+				"command": "extension.search-shortcuts.toggle-xs",
+				"title": "Search Shortcuts: Toggle XS"
+			},
+			{
+				"command": "extension.search-shortcuts.toggle-ui",
+				"title": "Search Shortcuts: Toggle UI"
 			}
 		]
 	},
