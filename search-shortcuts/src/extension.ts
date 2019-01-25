@@ -2,57 +2,31 @@
 
 import * as vscode from 'vscode';
 
-class FilterNode {
-	readonly command: string;
-	readonly name: string;
-	readonly pattern: string;
-	isOn: boolean;
+let FilterItem : vscode.StatusBarItem;
+let isFirstOn : boolean = false;
 
-    constructor( name: string, pattern: string ) {
-		this.command = 'extension.search-shortcuts.toggle-' + name;
-		this.name = name;
-		this.pattern = pattern;
-		this.isOn = false;
-	}
-	
-    toggle() : void {
-        this.isOn = !this.isOn;
-	}
-	
-	displayString() : string {
-		return `[${this.isOn ? 'x' : ' '}].${this.name}`;
-	}
+export function activate({ subscriptions }: vscode.ExtensionContext) {
+
+	const ActivationCommand = "extension.search-shortcuts.activate";
+	const ToggleCommand = "extension.search-shortcuts.toggle-first";
+
+	FilterItem = vscode.window.createStatusBarItem( vscode.StatusBarAlignment.Right, 100 );
+	FilterItem.command = ToggleCommand;
+
+	subscriptions.push( FilterItem );
+	subscriptions.push( vscode.commands.registerCommand( ToggleCommand, () => {
+		isFirstOn = !isFirstOn;
+		updateFilterButton();
+	}));
+
+	vscode.commands.registerCommand( ActivationCommand, () => {
+		updateFilterButton();
+		FilterItem.show();
+		console.log("extension.search-shortcuts activated");
+	});
 
 }
 
-const Filters : FilterNode[] = [
-	new FilterNode( "lua", "*.lua" ),
-	new FilterNode( "xs", "*.xs" ),
-	new FilterNode( "ui", "*.ui" ),
-];
-
-let Buttons : vscode.StatusBarItem[] = [];
-
-export function activate({ subscriptions }: vscode.ExtensionContext) {
-	for (let i = 0; i < Filters.length; i++) {
-		const element = Filters[i];
-
-		let widget: vscode.StatusBarItem = vscode.window.createStatusBarItem( vscode.StatusBarAlignment.Right, 100+i );
-		widget.command = element.command;
-		Buttons.push(widget);
-		subscriptions.push(widget);
-
-		subscriptions.push(vscode.commands.registerCommand(element.command, () => {
-				element.toggle();
-				widget.text = element.displayString();
-				vscode.window.showInformationMessage(`Toggled: ${element.name}` );
-		}));
-	}
-
-	subscriptions.push(vscode.commands.registerCommand("extension.search-shortcuts", () => {
-		for (let i = 0; i < Buttons.length; i++) {
-			Buttons[i].text = Filters[i].displayString()
-			Buttons[i].show();
-		}
-	}));
+function updateFilterButton() : void {
+	FilterItem.text = isFirstOn ? '[filter]' : ' filter ';
 }

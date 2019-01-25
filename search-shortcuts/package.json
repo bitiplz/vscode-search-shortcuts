@@ -10,26 +10,18 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.search-shortcuts"
+		"onCommand:extension.search-shortcuts.activate"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.search-shortcuts",
+				"command": "extension.search-shortcuts.activate",
 				"title": "Search Shortcuts"
 			},
 			{
-				"command": "extension.search-shortcuts.toggle-lua",
-				"title": "Search Shortcuts: Toggle LUA"
-			},
-			{
-				"command": "extension.search-shortcuts.toggle-xs",
-				"title": "Search Shortcuts: Toggle XS"
-			},
-			{
-				"command": "extension.search-shortcuts.toggle-ui",
-				"title": "Search Shortcuts: Toggle UI"
+				"command": "extension.search-shortcuts.toggle-first",
+				"title": "Search Shortcuts: Toggle First"
 			}
 		]
 	},
